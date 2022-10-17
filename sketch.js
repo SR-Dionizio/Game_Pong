@@ -20,6 +20,10 @@ let xRaqueteOponente = 625;
 let yRaqueteOponente = 150;
 let velocidadeYOponente = 3;
 
+//Placar do oponente
+let meusPontos = 0;
+let pontosDoOponente = 0;
+
 function setup() {
   createCanvas(640, 400);
 }
@@ -35,6 +39,9 @@ function draw() {
   colisaoRaquete (xRaqueteOponente, yRaqueteOponente);
   formatoDaRaquete (xRaqueteOponente, yRaqueteOponente);
   movimentaRaqueteOponente ();
+  PlacarDoJogo ();
+  fazMeusPontos ();
+  fazPontosOponente ();
 }
   
   
@@ -92,5 +99,21 @@ function movimentaRaqueteOponente(){
   yRaqueteOponente += velocidadeYOponente;
 }
   
+function PlacarDoJogo () {
+  fill (255)
+  text (meusPontos, 278, 26)
+  text (pontosDoOponente, 321, 26)
+}
 
+function fazMeusPontos () {
+  if(xBolinha + raio > width) {
+    pontosDoOponente += 1;
 
+    }
+  }
+
+function fazPontosOponente () {
+  if (xBolinha - raio < 0) {
+    meusPontos += 1;
+  }
+}
