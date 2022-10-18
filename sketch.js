@@ -9,23 +9,35 @@ let velocidadeYBolinha = 5;
 let raio = diametroBolinha / 2;
 
 //Variaveis da minha raquete
-let xRaquete = 5;
+let xRaquete = 0;
 let yRaquete = 200;
 let raqueteComprimento = 10;
 let raqueteAltura = 100;
 let colidiu = false;
 
 //Variaveis da raquete do oponente
-let xRaqueteOponente = 625;
+let xRaqueteOponente = 630;
 let yRaqueteOponente = 150;
 let velocidadeYOponente = 3;
 
-//Placar do oponente
+//Placar do jogo
 let meusPontos = 0;
 let pontosDoOponente = 0;
 
+//Sons do jogo
+let raquetada;
+let ponto;
+let trilha;
+
+function preload(){
+  trilha = loadSound("trilha.mp3");
+  ponto = loadSound("ponto.mp3");
+  raquetada = loadSound("raquetada.mp3");
+}
+
 function setup() {
   createCanvas(640, 400);
+  trilha.play();
 }
 
 function draw() {
@@ -100,15 +112,25 @@ function movimentaRaqueteOponente(){
 }
   
 function PlacarDoJogo () {
-  fill (255)
-  text (meusPontos, 278, 26)
-  text (pontosDoOponente, 321, 26)
+  //fill = preenchimento do retangulo do meu placar
+  fill (color(34,139,34));
+  rect(150, 10, 40, 30);
+  //preechimento do retangulo do placar do oponente
+  fill (color(34,139,34));
+  rect(450, 10, 40, 30);
+  textSize(25);
+  textAlign(CENTER);
+  fill (255);
+  //preenchimento do texto do meu placar
+  text (meusPontos, 170, 35);
+  //preenchimento do texto do placar do oponente
+  fill (255);
+  text (pontosDoOponente, 470, 35);
 }
 
 function fazMeusPontos () {
   if(xBolinha + raio > width) {
     pontosDoOponente += 1;
-
     }
   }
 
