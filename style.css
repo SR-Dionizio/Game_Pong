@@ -6,3 +6,23 @@ html, body {
 canvas {
   display: block;
 }
+
+iframe {
+
+  text-align: center;
+  width: 47%;
+  height: 460px;
+  margin: 0 26.5% 0 26.5%;
+}
+
+header{
+  text-align: center;
+  background: #2F4F4F;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+}
+
+.titulo {
+  color: aliceblue;
+  font-size: 1.5em;
+}
