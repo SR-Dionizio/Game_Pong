@@ -37,7 +37,7 @@ function preload(){
 
 function setup() {
   createCanvas(640, 400);
-  trilha.play();
+  trilha.loop();
 }
 
 function draw() {
@@ -54,7 +54,10 @@ function draw() {
   PlacarDoJogo ();
   fazMeusPontos ();
   fazPontosOponente ();
+
 }
+
+
   
   
 function formatoDaBolinha () {
@@ -68,7 +71,7 @@ function velocidadeDabolinha(){
 
 function colisaoComABorda () {
   
-  if(xBolinha + raio > width || xBolinha - raio < 0){
+  if(xBolinha + raio > 635 || xBolinha - raio < 5){
      velocidadeXBolinha *= -1;
      }
   
@@ -97,8 +100,10 @@ function colisaoRaquete (x, y) {
   collideRectCircle (x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
  
   if (colidiu){
-      velocidadeXBolinha *= -1
+      velocidadeXBolinha *= -1;
+      raquetada.play();
       }
+ 
   }
 
 
@@ -129,13 +134,15 @@ function PlacarDoJogo () {
 }
 
 function fazMeusPontos () {
-  if(xBolinha + raio > width) {
+  if(xBolinha + raio > 635) {
     pontosDoOponente += 1;
+    ponto.play();
     }
   }
 
 function fazPontosOponente () {
-  if (xBolinha - raio < 0) {
+  if (xBolinha - raio < 5) {
     meusPontos += 1;
+    ponto.play();
   }
 }
